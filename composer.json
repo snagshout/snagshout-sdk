@@ -1,0 +1,21 @@
+{
+    "name": "sellerlabs/snagshout-sdk",
+    "description": "Snagshout SDK",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduardo Trujillo",
+            "email": "ed@sellerlabs.com"
+        }
+    ],
+    "autoload": {
+        "psr4": {
+            "SellerLabs\\Snagshout\\": "src/SellerLabs/Snagshout"
+        }
+    },
+    "minimum-stability": "stable"
+}

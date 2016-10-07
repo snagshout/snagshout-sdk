@@ -1,0 +1,110 @@
+<?php
+
+namespace SellerLabs\Snagshout;
+
+use Closure;
+use DateTime;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\CurlHandler;
+use GuzzleHttp\HandlerStack;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
+/**
+ * Class SyndicationClient
+ *
+ * @package SellerLabs\Snagshout
+ *
+ * @author Eduardo Trujillo <ed@sellerlabs.com>
+ */
+class SyndicationClient
+{
+    /**
+     * @var string
+     */
+    protected $publicId;
+
+    /**
+     * @var string
+     */
+    protected $secretKey;
+
+    /**
+     * SyndicationClient constructor.
+     *
+     * @param string $publicId
+     * @param string $secretKey
+     */
+    public function __construct($publicId, $secretKey)
+    {
+        $this->publicId = $publicId;
+        $this->secretKey = $secretKey;
+
+        $stack = new HandlerStack();
+
+        $stack->setHandler(new CurlHandler());
+
+        $stack->push($this->makeAuthHandler());
+
+        $this->client = new Client([
+            'handler' => $stack,
+        ]);
+    }
+
+    /**
+     * Computes the hash of a string using the secret key.
+     *
+     * @param string $content
+     *
+     * @return string
+     */
+    protected function hash($content)
+    {
+        $timestamp = (new DateTime())->format('Y-m-d H');
+
+        return hash_hmac(
+            'sha512',
+            $content . $timestamp,
+            $this->secretKey
+        );
+    }
+
+    /**
+     * A Guzzle middleware that automatically adds the required Authorization
+     * and Content-Hash headers required by the Snagshout API.
+     *
+     * @return Closure
+     */
+    protected function makeAuthHandler()
+    {
+        return function (callable $handler) {
+            return function (
+                RequestInterface $request,
+                array $options
+            ) use ($handler) {
+                $contentHash = $this->hash($request->getBody());
+
+                $request = $request
+                    ->withHeader(
+                        'Authorization',
+                        vsprintf('Hash %s', [$this->publicId])
+                    )
+                    ->withHeader('Content-Hash', $contentHash);
+
+                return $handler($request, $options);
+            };
+        };
+    }
+
+    /**
+     * Searches for campaigns/offers.
+     *
+     * @param array $options
+     *
+     * @return ResponseInterface
+     */
+    public function getCampaigns(array $options = [])
+    {
+        return $this->client->get('/api/v1/campaigns', $options);
+    }
+}
