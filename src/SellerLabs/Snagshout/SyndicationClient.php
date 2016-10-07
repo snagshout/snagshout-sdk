@@ -7,6 +7,7 @@ use DateTime;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -30,6 +31,11 @@ class SyndicationClient
     protected $secretKey;
 
     /**
+     * @var Uri
+     */
+    protected $endpoint;
+
+    /**
      * SyndicationClient constructor.
      *
      * @param string $publicId
@@ -40,6 +46,8 @@ class SyndicationClient
         $this->publicId = $publicId;
         $this->secretKey = $secretKey;
 
+        $this->endpoint = new Uri('https://www.snagshout.com');
+
         $stack = new HandlerStack();
 
         $stack->setHandler(new CurlHandler());
@@ -49,6 +57,30 @@ class SyndicationClient
         $this->client = new Client([
             'handler' => $stack,
         ]);
+    }
+
+    /**
+     * @param string $publicId
+     */
+    public function setPublicId(string $publicId)
+    {
+        $this->publicId = $publicId;
+    }
+
+    /**
+     * @param string $secretKey
+     */
+    public function setSecretKey(string $secretKey)
+    {
+        $this->secretKey = $secretKey;
+    }
+
+    /**
+     * @param Uri $endpoint
+     */
+    public function setEndpoint(Uri $endpoint)
+    {
+        $this->endpoint = $endpoint;
     }
 
     /**
@@ -85,6 +117,10 @@ class SyndicationClient
                 $contentHash = $this->hash($request->getBody());
 
                 $request = $request
+                    ->withUri($this->endpoint->withPath(
+                        $this->endpoint->getPath()
+                        . $request->getUri()->getPath()
+                    ))
                     ->withHeader(
                         'Authorization',
                         vsprintf('Hash %s', [$this->publicId])
