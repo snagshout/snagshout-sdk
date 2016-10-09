@@ -16,7 +16,10 @@ $client->setEndpoint(new Uri('http://localhost'));
 
 var_export(json_decode(
     $client
-        ->getCampaigns(['query' => ['type' => 'syndicated']])
+        ->getCampaigns(['query' => [
+            'embeds' => 'product.amazonData,promotions',
+            'type' => 'syndicated',
+        ]])
         ->getBody()
         ->getContents(),
     true

@@ -147,7 +147,7 @@ class SyndicationClient
      */
     public function getCampaigns(array $options = [])
     {
-        return $this->client->get('/api/v1/campaigns', array_merge_recursive(
+        return $this->client->get('/api/v1/campaigns', array_merge(
             [
                 'query' => [
                     'embeds' => 'promotions',
