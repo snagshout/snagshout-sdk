@@ -15,6 +15,9 @@ $client = new SyndicationClient(
 $client->setEndpoint(new Uri('http://localhost'));
 
 var_export(json_decode(
-    $client->getCampaigns()->getBody()->getContents(),
+    $client
+        ->getCampaigns(['query' => ['type' => 'syndicated']])
+        ->getBody()
+        ->getContents(),
     true
 ));

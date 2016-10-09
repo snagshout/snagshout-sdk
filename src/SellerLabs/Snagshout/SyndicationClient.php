@@ -116,11 +116,17 @@ class SyndicationClient
             ) use ($handler) {
                 $contentHash = $this->hash($request->getBody());
 
-                $request = $request
-                    ->withUri($this->endpoint->withPath(
+                $partialUri = $request->getUri();
+                $uri = $this->endpoint
+                    ->withPath(
                         $this->endpoint->getPath()
-                        . $request->getUri()->getPath()
-                    ))
+                        . $partialUri->getPath()
+                    )
+                    ->withQuery($partialUri->getQuery())
+                    ->withFragment($partialUri->getFragment());
+
+                $request = $request
+                    ->withUri($uri)
                     ->withHeader(
                         'Authorization',
                         vsprintf('Hash %s', [$this->publicId])
@@ -141,6 +147,13 @@ class SyndicationClient
      */
     public function getCampaigns(array $options = [])
     {
-        return $this->client->get('/api/v1/campaigns', $options);
+        return $this->client->get('/api/v1/campaigns', array_merge_recursive(
+            [
+                'query' => [
+                    'embeds' => 'promotions',
+                ]
+            ],
+            $options
+        ));
     }
 }
