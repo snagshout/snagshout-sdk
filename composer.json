@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "SellerLabs\\Snagshout\\": "src/SellerLabs/Snagshout"
+            "SellerLabs\\Snagshout\\": "php/src/SellerLabs/Snagshout"
         }
     },
     "minimum-stability": "stable"
