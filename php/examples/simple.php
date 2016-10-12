@@ -2,7 +2,7 @@
 
 date_default_timezone_set('UTC');
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use GuzzleHttp\Psr7\Uri;
 use SellerLabs\Snagshout\SyndicationClient;
