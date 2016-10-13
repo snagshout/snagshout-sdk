@@ -19,6 +19,7 @@ $contentHash = hash_hmac(
 // Next, we begin setting up the Curl client (URI and headers).
 $ch = curl_init("https://www.snagshout.com/api/v1/campaigns");
 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     vsprintf('Authorization: Hash %s', [$publicId]),

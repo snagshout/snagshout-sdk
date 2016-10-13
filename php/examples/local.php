@@ -8,19 +8,16 @@ use GuzzleHttp\Psr7\Uri;
 use SellerLabs\Snagshout\SyndicationClient;
 
 $client = new SyndicationClient(
-    "886faadcc003fdcd436ec649d646bf007b66befac1c28757974f75756e1aa99fc591df9785837e32ee06b6c60af6e8795dfe6947a6aa19cbf808cbb905a7ebea",
-    "6ddb27eb2832cc3be4dc204e0b5ebc4efdcd1fc08d21778cef78555e99244c31bb80a181855606004418d159a9d8517bacb13d3e733954730991f629effb4571"
+    "664d41ab7fc244b016b440e7e2a3a76c5a4fd5e0f91b451133f706d2a5c455f8b4c49386781305b1fbffcdd5713dc4c951295d3eb040c19f7d1c20d3152e1dc1",
+    "4b1af292dfc0412b34f4ef3ab0f91d98ea63c2ce849bbaf87337c79845591aa8a98947a986d66a412789cff9f117e2dc988659b8d2e65972091b5f134195debf"
 );
 
 $client->setEndpoint(new Uri('http://localhost'));
 
-var_export(json_decode(
-    $client
-        ->getCampaigns(['query' => [
-            'embeds' => 'product.amazonData,promotions',
-            'type' => 'syndicated',
-        ]])
-        ->getBody()
-        ->getContents(),
-    true
-));
+var_dump($client
+    ->getCampaigns(['query' => [
+        'embeds' => 'product.amazonData,promotions',
+        'type' => 'syndicated',
+    ]])
+    ->getBody()
+    ->getContents());
