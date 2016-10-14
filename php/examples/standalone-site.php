@@ -141,25 +141,30 @@ $getDeals = function () use ($onlySyndicated) {
                 <div class="small-12 medium-8 medium-offset-2 columns">
                     <hr>
 
-                    <?php if($onlySyndicated()) { ?>
+                    <?php if ($onlySyndicated()) { ?>
                         <h4>Syndicated deals:</h4>
                     <?php } else { ?>
                         <h4>Available deals:</h4>
                     <?php } ?>
 
-                    <div class="row small-up-1 medium-up-2 large-up-4">
+                    <div class="row small-up-1 medium-up-2 large-up-3">
                         <?php foreach(($getDeals())['data'] as $campaign) { ?>
                         <div class="column">
-                            <h6><?php echo $campaign['name'] ?></h6>
-                            <p>
-                                <small>
-                                    <?php echo $campaign['description'] ?>
-                                </small>
-                            </p>
-                            <img
-                                src="<?php echo $campaign['product']['featuredImage']['url'] ?>"
-                                class="thumbnail"
-                                alt="">
+                            <div class="callout">
+                                <img
+                                    src="<?php echo $campaign['product']['featuredImage']['url'] ?>"
+                                    class="thumbnail"
+                                    alt="">
+                                <h6><?php echo $campaign['name'] ?></h6>
+                                <p>
+                                    <small>
+                                        <?php echo $campaign['description'] ?>
+                                    </small>
+                                </p>
+                                <?php if (isset($campaign['promotions'][0]['promoCode']['promoCode'])) { ?>
+                                    <code><?php echo $campaign['promotions'][0]['promoCode']['promoCode'] ?></code>
+                                <?php } ?>
+                            </div>
                         </div>
                         <?php } ?>
                     </div>
