@@ -33,9 +33,9 @@ $getDeals = function () use ($onlySyndicated) {
         ? $_GET['endpoint']
         : 'https://www.snagshout.com';
 
-    $query = $onlySyndicated() ? '?type=syndicated' : '';
+    $query = $onlySyndicated() ? 'type=syndicated' : '';
 
-    $ch = curl_init(vsprintf("%s/api/v1/campaigns%s", [$endpoint, $query]));
+    $ch = curl_init(vsprintf("%s/api/v1/campaigns?%s", [$endpoint, $query]));
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);

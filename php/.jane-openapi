@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'openapi-file' => __DIR__ . '/swagger.json',
+    'namespace' => 'SellerLabs\Snagshout',
+    'directory' => __DIR__ . '/src/SellerLabs/Snagshout',
+    'date-format' => \DateTime::RFC3339,
+    'reference' => false,
+];
