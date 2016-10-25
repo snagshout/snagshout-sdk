@@ -293,7 +293,6 @@ type V1GetCampaignsAPI
   :> QueryParam "type" CampaignType
   :> Get '[JSON] (Response V1GetCampaigns)
 
-
 api :: Proxy API
 api = Proxy
 
@@ -305,5 +304,12 @@ swaggerDoc = toSwagger snagshoutAPI
   & info.title .~ "Snagshout API"
   & info.version .~ "v1"
   & info.description ?~ "The Snagshout API"
+  & info.contact ?~ apiContact
   & host ?~ Host "www.snagshout.com" Nothing
   & schemes ?~ [Https]
+
+  where
+    apiContact = mempty
+      & name ?~ "Seller Labs"
+      & email ?~ "support@sellerlabs.com"
+      & url ?~ URL "https://www.sellerlabs.com"
