@@ -1,0 +1,30 @@
+name:                openapi
+version:             0.1.0.0
+synopsis:            An OpenAPI/Swagger/Servant definition of the Snagshout API
+description:         Please see README.md
+homepage:            https://github.com/sellerlabs/snagshout-sdk#readme
+license:             Apache2
+author:              Seller Labs
+maintainer:          ed@sellerlabs.com
+copyright:           2016 Seller Labs
+category:            Web
+
+dependencies:
+  - base >= 4.7 && < 5
+  - text
+  - lens
+  - aeson
+  - aeson-casing
+  - servant
+  - servant-server
+  - servant-swagger
+  - servant-swagger-ui
+  - swagger2
+  - warp
+  - insert-ordered-containers
+  - http-api-data
+
+executables:
+  openapi:
+    source-dirs:      src
+    main:             Main.hs
