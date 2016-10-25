@@ -146,6 +146,13 @@ class Client
         };
     }
 
+    /**
+     * Builds an instance of the V1 resource.
+     *
+     * This resource can be used to make calls to all v1 API methods.
+     *
+     * @return DefaultResource
+     */
     public function v1()
     {
         return new DefaultResource(
