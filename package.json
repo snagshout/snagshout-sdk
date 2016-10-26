@@ -1,0 +1,17 @@
+{
+  "name": "snagshout-sdk",
+  "version": "0.1.0",
+  "description": "Libraries and code examples for interacting with the Snagshout API",
+  "main": "index.js",
+  "repository": {
+    "url": "git@github.com:sellerlabs/snagshout-sdk.git",
+    "type": "git"
+  },
+  "author": "Eduardo Trujillo <ed@sellerlabs.com>",
+  "license": "Apache 2",
+  "dependencies": {
+    "crypto-js": "^3.1.7",
+    "moment": "^2.15.2",
+    "swagger-client": "^2.1.23"
+  }
+}
