@@ -79,9 +79,10 @@ var contentHash
 This repository is licensed under the Apache 2.0 license. Please refer to the
 `LICENSE` file for more information.
 
-[php-docs]: https://sellerlabs.github.io/snagshout-sdk/php/
+[php-docs]: https://sellerlabs.github.io/snagshout-sdk/php/#readme
 [php-src]: https://github.com/sellerlabs/snagshout-sdk/tree/master/php/src
 [php-examples]: https://github.com/sellerlabs/snagshout-sdk/tree/master/php/examples
 
+[js-docs]: https://sellerlabs.github.io/snagshout-sdk/js/#readme
 [js-src]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/src
 [js-examples]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/examples
