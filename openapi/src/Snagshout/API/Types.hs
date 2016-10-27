@@ -5,8 +5,9 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeOperators              #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE DuplicateRecordFields      #-}
+{-# LANGUAGE RankNTypes                 #-}
 
 module Snagshout.API.Types where
 
@@ -23,6 +24,7 @@ import           Servant.Swagger
 import           Servant.Swagger.UI
 import           Data.Swagger.Internal.Schema
 import           Data.HashMap.Strict.InsOrd (fromList)
+import           Network.HTTP.Media.MediaType
 
 import           Snagshout.API.JSON
 import           Snagshout.API.QueryTypes
@@ -269,10 +271,12 @@ type API
 
 type SnagshoutAPI = "api" :> "v1" :> V1API
 
-type V1API
-  = "status" :> Get '[JSON] (Response V1GetStatus)
-  :<|> V1GetCampaignsAPI
-  :<|> "categories" :> Get '[JSON] (Response V1GetCategories)
+type V1API = V1GetStatusAPI :<|> V1GetCampaignsAPI :<|> V1GetCategoriesAPI
+
+type V1GetStatusAPI = "status" :> Get '[JSON] (Response V1GetStatus)
+
+type V1GetCategoriesAPI
+  = "categories" :> Get '[JSON] (Response V1GetCategories)
 
 type V1GetCampaignsAPI
   = "campaigns"
@@ -299,6 +303,9 @@ api = Proxy
 snagshoutAPI :: Proxy SnagshoutAPI
 snagshoutAPI = Proxy
 
+v1API :: Proxy V1API
+v1API = Proxy
+
 swaggerDoc :: Swagger
 swaggerDoc = toSwagger snagshoutAPI
   & info.title .~ "Snagshout API"
@@ -307,9 +314,31 @@ swaggerDoc = toSwagger snagshoutAPI
   & info.contact ?~ apiContact
   & host ?~ Host "www.snagshout.com" Nothing
   & schemes ?~ [Https]
+  & consumes .~ MimeList ["application" // "json"]
+  & produces .~ MimeList ["application" // "json"]
+  -- Campaigns
+  & applyTagsFor (tGet "/api/v1/campaigns")
+    ["campaign" & description ?~ "Campaign operations"]
+  & (tGet "/api/v1/campaigns") . operationId ?~ "getCampaigns"
+  & (tGet "/api/v1/campaigns") . summary ?~ "Search for campaigns"
+  -- Categories
+  & applyTagsFor (tGet "/api/v1/categories")
+    ["category" & description ?~ "Category operations"]
+  & (tGet "/api/v1/categories") . operationId ?~ "getCategories"
+  & (tGet "/api/v1/categories") . summary ?~ "Get all categories"
+  -- Status
+  & applyTagsFor (tGet "/api/v1/status")
+    ["front" & description ?~ "Other operations"]
+  & (tGet "/api/v1/status") . operationId ?~ "getStatus"
+  & (tGet "/api/v1/status") . summary ?~ "Get system status"
 
   where
     apiContact = mempty
       & name ?~ "Seller Labs"
       & email ?~ "support@sellerlabs.com"
       & url ?~ URL "https://www.sellerlabs.com"
+
+    tGet :: FilePath -> Traversal' Swagger Operation
+    tGet path = operationsOf
+      $ (mempty :: Swagger)
+      & paths .~ fromList [(path, mempty & get ?~ mempty)]

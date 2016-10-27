@@ -23,6 +23,7 @@ dependencies:
   - warp
   - insert-ordered-containers
   - http-api-data
+  - http-media
 
 executables:
   openapi:

@@ -34,6 +34,7 @@ executable openapi
     , warp
     , insert-ordered-containers
     , http-api-data
+    , http-media
   other-modules:
       Snagshout.API.JSON
       Snagshout.API.QueryTypes
