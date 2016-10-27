@@ -7,3 +7,6 @@ all:
 	curl -o swagger.json http://localhost:8000/swagger.json
 	php ../vendor/bin/jane-openapi generate
 	rm swagger.json
+
+docs:
+	apigen generate -s src -d ../docs/php
