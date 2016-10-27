@@ -73,7 +73,7 @@ class Client
     /**
      * @param string $publicId
      */
-    public function setPublicId(string $publicId)
+    public function setPublicId($publicId)
     {
         $this->publicId = $publicId;
     }
@@ -81,7 +81,7 @@ class Client
     /**
      * @param string $secretKey
      */
-    public function setSecretKey(string $secretKey)
+    public function setSecretKey($secretKey)
     {
         $this->secretKey = $secretKey;
     }
