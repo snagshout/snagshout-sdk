@@ -83,6 +83,6 @@ This repository is licensed under the Apache 2.0 license. Please refer to the
 [php-src]: https://github.com/sellerlabs/snagshout-sdk/tree/master/php/src
 [php-examples]: https://github.com/sellerlabs/snagshout-sdk/tree/master/php/examples
 
-[js-docs]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/src#readme
+[js-docs]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js#readme
 [js-src]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/src
 [js-examples]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/examples
