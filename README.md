@@ -21,7 +21,7 @@ point for anyone interacting with the API.
 ## Supported languages
 
 - PHP ([Documentation][php-docs], [Source][php-src], [Examples][php-examples])
-- JavaScript ([Source][js-src], [Examples][js-src])
+- JavaScript ([Source][js-src], [Examples][js-examples])
 
 ## License
 
