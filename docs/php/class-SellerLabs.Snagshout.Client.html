@@ -123,7 +123,7 @@
 
 				<b>Author:</b>
 				Eduardo Trujillo <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x65;&#100;&#64;&#x73;&#101;&#108;&#x6c;&#x65;&#114;l&#x61;&#98;&#115;&#x2e;&#x63;&#111;m">&#x65;&#100;&#64;&#x73;&#101;&#108;&#x6c;&#x65;&#114;l&#x61;&#98;&#115;&#x2e;&#x63;&#111;m</a><br>
-			<b>Located at</b> <a href="source-class-SellerLabs.Snagshout.Client.html#22-173" title="Go to source code">SellerLabs/Snagshout/Client.php</a>
+			<b>Located at</b> <a href="source-class-SellerLabs.Snagshout.Client.html#25-206" title="Go to source code">SellerLabs/Snagshout/Client.php</a>
 		<br>
 	</div>
 
@@ -143,7 +143,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#46-68" title="Go to source code">__construct</a>( <span>string <var>$publicId</var></span>, <span>string <var>$secretKey</var></span> )</code>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#49-71" title="Go to source code">__construct</a>( <span>string <var>$publicId</var></span>, <span>string <var>$secretKey</var></span> )</code>
 
 		<div class="description short">
 			<p>SyndicationClient constructor.</p>
@@ -180,7 +180,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPublicId">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#70-76" title="Go to source code">setPublicId</a>( <span>SellerLabs\Snagshout\string <var>$publicId</var></span> )</code>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#73-79" title="Go to source code">setPublicId</a>( <span>SellerLabs\Snagshout\string <var>$publicId</var></span> )</code>
 
 		<div class="description short">
 			
@@ -215,7 +215,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSecretKey">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#78-84" title="Go to source code">setSecretKey</a>( <span>SellerLabs\Snagshout\string <var>$secretKey</var></span> )</code>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#81-87" title="Go to source code">setSecretKey</a>( <span>SellerLabs\Snagshout\string <var>$secretKey</var></span> )</code>
 
 		<div class="description short">
 			
@@ -250,7 +250,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setEndpoint">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#86-92" title="Go to source code">setEndpoint</a>( <span>GuzzleHttp\Psr7\Uri <var>$endpoint</var></span> )</code>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#89-95" title="Go to source code">setEndpoint</a>( <span>GuzzleHttp\Psr7\Uri <var>$endpoint</var></span> )</code>
 
 		<div class="description short">
 			
@@ -285,7 +285,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hash">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#94-110" title="Go to source code">hash</a>( <span>string <var>$content</var></span> )</code>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#97-113" title="Go to source code">hash</a>( <span>string <var>$content</var></span> )</code>
 
 		<div class="description short">
 			<p>Computes the hash of a string using the secret key.</p>
@@ -324,7 +324,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_makeAuthHandler">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#112-147" title="Go to source code">makeAuthHandler</a>( )</code>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#115-150" title="Go to source code">makeAuthHandler</a>( )</code>
 
 		<div class="description short">
 			<p>A Guzzle middleware that automatically adds the required Authorization
@@ -348,34 +348,139 @@ and Content-Hash headers required by the Snagshout API.</p>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="v1" id="_v1">
+	<tr data-order="buildResource" id="_buildResource">
 
 		<td class="attributes"><code>
-			 public 
+			 protected 
 
-			<code><a href="class-SellerLabs.Snagshout.Resource.DefaultResource.html">SellerLabs\Snagshout\Resource\DefaultResource</a></code>
+			Resource
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_v1">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Client.html#149-172" title="Go to source code">v1</a>( )</code>
+		<a class="anchor" href="#_buildResource">#</a>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#152-175" title="Go to source code">buildResource</a>( <span>string <var>$resourceClass</var></span> )</code>
 
 		<div class="description short">
-			<p>Builds an instance of the V1 resource.</p>
+			<p>A wrapper for constructing instances of resource classes.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Builds an instance of the V1 resource.</p>
+			<p>A wrapper for constructing instances of resource classes.</p>
 
-<p>This resource can be used to make calls to all v1 API methods.</p>
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resourceClass</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					Resource
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="campaign" id="_campaign">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SellerLabs.Snagshout.Resource.CampaignResource.html">SellerLabs\Snagshout\Resource\CampaignResource</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_campaign">#</a>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#177-185" title="Go to source code">campaign</a>( )</code>
+
+		<div class="description short">
+			<p>Builds an instance of the Campaign resource.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Builds an instance of the Campaign resource.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-SellerLabs.Snagshout.Resource.DefaultResource.html">SellerLabs\Snagshout\Resource\DefaultResource</a></code>
+					<code><a href="class-SellerLabs.Snagshout.Resource.CampaignResource.html">SellerLabs\Snagshout\Resource\CampaignResource</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="category" id="_category">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SellerLabs.Snagshout.Resource.CategoryResource.html">SellerLabs\Snagshout\Resource\CategoryResource</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_category">#</a>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#187-195" title="Go to source code">category</a>( )</code>
+
+		<div class="description short">
+			<p>Builds an instance of the Campaign resource.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Builds an instance of the Campaign resource.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SellerLabs.Snagshout.Resource.CategoryResource.html">SellerLabs\Snagshout\Resource\CategoryResource</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="front" id="_front">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SellerLabs.Snagshout.Resource.FrontResource.html">SellerLabs\Snagshout\Resource\FrontResource</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_front">#</a>
+		<code><a href="source-class-SellerLabs.Snagshout.Client.html#197-205" title="Go to source code">front</a>( )</code>
+
+		<div class="description short">
+			<p>Builds an instance of the Front resource.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Builds an instance of the Front resource.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SellerLabs.Snagshout.Resource.FrontResource.html">SellerLabs\Snagshout\Resource\FrontResource</a></code>
 				</div>
 
 
@@ -406,7 +511,7 @@ and Content-Hash headers required by the Snagshout API.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SellerLabs.Snagshout.Client.html#31-34" title="Go to source code"><var>$publicId</var></a>
+				<a href="source-class-SellerLabs.Snagshout.Client.html#34-37" title="Go to source code"><var>$publicId</var></a>
 
 			<div class="description short">
 				
@@ -431,7 +536,7 @@ and Content-Hash headers required by the Snagshout API.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SellerLabs.Snagshout.Client.html#36-39" title="Go to source code"><var>$secretKey</var></a>
+				<a href="source-class-SellerLabs.Snagshout.Client.html#39-42" title="Go to source code"><var>$secretKey</var></a>
 
 			<div class="description short">
 				
@@ -456,7 +561,7 @@ and Content-Hash headers required by the Snagshout API.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SellerLabs.Snagshout.Client.html#41-44" title="Go to source code"><var>$endpoint</var></a>
+				<a href="source-class-SellerLabs.Snagshout.Client.html#44-47" title="Go to source code"><var>$endpoint</var></a>
 
 			<div class="description short">
 				

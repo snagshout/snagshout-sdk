@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class SellerLabs\Snagshout\Resource\DefaultResource</title>
+	<title>Class SellerLabs\Snagshout\Resource\CampaignResource</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -60,7 +60,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-SellerLabs.Snagshout.Resource.DefaultResource.html">DefaultResource</a></li>
+				<li class="active"><a href="class-SellerLabs.Snagshout.Resource.CampaignResource.html">CampaignResource</a></li>
+				<li><a href="class-SellerLabs.Snagshout.Resource.CategoryResource.html">CategoryResource</a></li>
+				<li><a href="class-SellerLabs.Snagshout.Resource.FrontResource.html">FrontResource</a></li>
 			</ul>
 
 
@@ -99,7 +101,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class DefaultResource</h1>
+	<h1>Class CampaignResource</h1>
 
 
 
@@ -111,7 +113,7 @@ Joli\Jane\OpenApi\Runtime\Client\Resource
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>SellerLabs\Snagshout\Resource\DefaultResource</span></b>			
+<b><span>SellerLabs\Snagshout\Resource\CampaignResource</span></b>			
 			
 			
 		</dd>
@@ -130,7 +132,7 @@ Joli\Jane\OpenApi\Runtime\Client\Resource
 		<b>Namespace:</b> <a href="namespace-SellerLabs.html">SellerLabs</a>\<a href="namespace-SellerLabs.Snagshout.html">Snagshout</a>\<a href="namespace-SellerLabs.Snagshout.Resource.html">Resource</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-SellerLabs.Snagshout.Resource.DefaultResource.html#7-124" title="Go to source code">SellerLabs/Snagshout/Resource/DefaultResource.php</a>
+			<b>Located at</b> <a href="source-class-SellerLabs.Snagshout.Resource.CampaignResource.html#7-68" title="Go to source code">SellerLabs/Snagshout/Resource/CampaignResource.php</a>
 		<br>
 	</div>
 
@@ -138,48 +140,7 @@ Joli\Jane\OpenApi\Runtime\Client\Resource
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="getApiV1Status" id="_getApiV1Status">
-
-		<td class="attributes"><code>
-			 public 
-
-			Psr\Http\Message\ResponseInterface|<code><a href="class-SellerLabs.Snagshout.Model.V1GetStatusResponse.html">SellerLabs\Snagshout\Model\V1GetStatusResponse</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getApiV1Status">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Resource.DefaultResource.html#9-36" title="Go to source code">getApiV1Status</a>( <span>array <var>$parameters</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$fetch</var> = self::FETCH_OBJECT</span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$parameters</var></dt>
-					<dd>List of parameters</dd>
-					<dt><var>$fetch</var></dt>
-					<dd>Fetch mode (object or response)</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					Psr\Http\Message\ResponseInterface|<code><a href="class-SellerLabs.Snagshout.Model.V1GetStatusResponse.html">SellerLabs\Snagshout\Model\V1GetStatusResponse</a></code>
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getApiV1Campaign" id="_getApiV1Campaign">
+	<tr data-order="getCampaigns" id="_getCampaigns">
 
 		<td class="attributes"><code>
 			 public 
@@ -190,8 +151,8 @@ Joli\Jane\OpenApi\Runtime\Client\Resource
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getApiV1Campaign">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Resource.DefaultResource.html#37-95" title="Go to source code">getApiV1Campaign</a>( <span>array <var>$parameters</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$fetch</var> = self::FETCH_OBJECT</span> )</code>
+		<a class="anchor" href="#_getCampaigns">#</a>
+		<code><a href="source-class-SellerLabs.Snagshout.Resource.CampaignResource.html#9-67" title="Go to source code">getCampaigns</a>( <span>array <var>$parameters</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$fetch</var> = self::FETCH_OBJECT</span> )</code>
 
 		<div class="description short">
 			
@@ -234,47 +195,6 @@ Joli\Jane\OpenApi\Runtime\Client\Resource
 						<p>string $type
 }</p><br>
 				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getApiV1Category" id="_getApiV1Category">
-
-		<td class="attributes"><code>
-			 public 
-
-			Psr\Http\Message\ResponseInterface|<code><a href="class-SellerLabs.Snagshout.Model.V1GetCategoriesResponse.html">SellerLabs\Snagshout\Model\V1GetCategoriesResponse</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getApiV1Category">#</a>
-		<code><a href="source-class-SellerLabs.Snagshout.Resource.DefaultResource.html#96-123" title="Go to source code">getApiV1Category</a>( <span>array <var>$parameters</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$fetch</var> = self::FETCH_OBJECT</span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$parameters</var></dt>
-					<dd>List of parameters</dd>
-					<dt><var>$fetch</var></dt>
-					<dd>Fetch mode (object or response)</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					Psr\Http\Message\ResponseInterface|<code><a href="class-SellerLabs.Snagshout.Model.V1GetCategoriesResponse.html">SellerLabs\Snagshout\Model\V1GetCategoriesResponse</a></code>
-				</div>
-
-
 
 
 		</div>
