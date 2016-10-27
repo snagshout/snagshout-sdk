@@ -2,7 +2,7 @@
   "name": "snagshout-sdk",
   "version": "0.1.0",
   "description": "Libraries and code examples for interacting with the Snagshout API",
-  "main": "index.js",
+  "main": "js/src/SnagshoutClient.js",
   "repository": {
     "url": "git@github.com:sellerlabs/snagshout-sdk.git",
     "type": "git"
