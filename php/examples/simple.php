@@ -13,8 +13,14 @@ $client = new Client(
 
 var_export(
     $client
-        ->v1()
-        ->getApiV1Campaign([
-            //'type' => 'syndicated',
+        ->front()
+        ->getStatus()
+);
+
+var_export(
+    $client
+        ->campaign()
+        ->getCampaigns([
+            'type' => 'syndicated',
         ])
 );

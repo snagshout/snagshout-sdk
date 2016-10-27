@@ -12,6 +12,9 @@ use GuzzleHttp\Psr7\Uri;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
 use Joli\Jane\Runtime\Encoder\RawEncoder;
 use Psr\Http\Message\RequestInterface;
+use SellerLabs\Snagshout\Resource\CampaignResource;
+use SellerLabs\Snagshout\Resource\CategoryResource;
+use SellerLabs\Snagshout\Resource\FrontResource;
 use SellerLabs\Snagshout\Utils\NormalizerFactory;
 use SellerLabs\Snagshout\Resource\DefaultResource;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
@@ -147,15 +150,15 @@ class Client
     }
 
     /**
-     * Builds an instance of the V1 resource.
+     * A wrapper for constructing instances of resource classes.
      *
-     * This resource can be used to make calls to all v1 API methods.
+     * @param string $resourceClass
      *
-     * @return DefaultResource
+     * @return Resource
      */
-    public function v1()
+    protected function buildResource($resourceClass)
     {
-        return new DefaultResource(
+        return new $resourceClass(
             new GuzzleAdapter($this->client),
             new GuzzleMessageFactory(),
             new Serializer(
@@ -169,5 +172,35 @@ class Client
                 ]
             )
         );
+    }
+
+    /**
+     * Builds an instance of the Campaign resource.
+     *
+     * @return CampaignResource
+     */
+    public function campaign()
+    {
+        return $this->buildResource(CampaignResource::class);
+    }
+
+    /**
+     * Builds an instance of the Campaign resource.
+     *
+     * @return CategoryResource
+     */
+    public function category()
+    {
+        return $this->buildResource(CategoryResource::class);
+    }
+
+    /**
+     * Builds an instance of the Front resource.
+     *
+     * @return FrontResource
+     */
+    public function front()
+    {
+        return $this->buildResource(FrontResource::class);
     }
 }
