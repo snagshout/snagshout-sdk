@@ -41,13 +41,16 @@ hashed message only contains a date/time format, since there is no message body,
 while `POST` requests use the message body string concatenated with the
 date/time format.
 
+The date/time format is `YYYY-MM-DD HH` and should be in UTC. See examples
+below on how to generate it on PHP and JS.
+
 In PHP, the HMAC hashing function is conveniently built-in to the language, so
 we can compute a hash as follows:
 
 ```php
 $contentHash = hash_hmac(
   'sha512',
-  $requestBody . (new DateTime())->format('Y-m-d H'),
+  $requestBody . gmdate('Y-m-d H'),
   $secretKey
 );
 ```
