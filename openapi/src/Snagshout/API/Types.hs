@@ -314,6 +314,9 @@ swaggerDoc = toSwagger snagshoutAPI
   & info.contact ?~ apiContact
   & host ?~ Host "www.snagshout.com" Nothing
   & schemes ?~ [Https]
+  & securityDefinitions .~ fromList
+    [("basic", SecurityScheme SecuritySchemeBasic Nothing)]
+  & security .~ [SecurityRequirement $ fromList [("root", ["basic"])]]
   & consumes .~ MimeList ["application" // "json"]
   & produces .~ MimeList ["application" // "json"]
   -- Campaigns
