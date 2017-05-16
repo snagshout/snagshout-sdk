@@ -11,14 +11,14 @@ methods available to our partners. This specification can be used to
 automatically generate client libraries for many languages, and as a reference
 point for anyone interacting with the API.
 
-- **Swagger JSON:** https://sellerlabs.github.io/snagshout-sdk/swagger.json
+- **Swagger JSON:** https://snagshout.github.io/snagshout-sdk/swagger.json
 
 - **Swagger UI:** The UI provides a graphical interface to explore the
   specification. You can use it to lookup the parameter and response types
   supported by each method. Note: While it supports making interactive
   requests, the Snagshout API does not currently have the required CORS headers
   to allow for interactive consoles to make requests:
-  https://sellerlabs.github.io/snagshout-sdk/
+  https://snagshout.github.io/snagshout-sdk/
 
 ## Partner Authentication
 
@@ -82,10 +82,10 @@ var contentHash
 This repository is licensed under the Apache 2.0 license. Please refer to the
 `LICENSE` file for more information.
 
-[php-docs]: https://sellerlabs.github.io/snagshout-sdk/php/
-[php-src]: https://github.com/sellerlabs/snagshout-sdk/tree/master/php/src
-[php-examples]: https://github.com/sellerlabs/snagshout-sdk/tree/master/php/examples
+[php-docs]: https://snagshout.github.io/snagshout-sdk/php/
+[php-src]: https://github.com/snagshout/snagshout-sdk/tree/master/php/src
+[php-examples]: https://github.com/snagshout/snagshout-sdk/tree/master/php/examples
 
-[js-docs]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js#readme
-[js-src]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/src
-[js-examples]: https://github.com/sellerlabs/snagshout-sdk/tree/master/js/examples
+[js-docs]: https://github.com/snagshout/snagshout-sdk/tree/master/js#readme
+[js-src]: https://github.com/snagshout/snagshout-sdk/tree/master/js/src
+[js-examples]: https://github.com/snagshout/snagshout-sdk/tree/master/js/examples
